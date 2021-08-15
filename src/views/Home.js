@@ -49,6 +49,7 @@ export default function Home() {
       .all([mangaUrl, popularUrl, recommendedUrl, manhuaUrl, manhwaUrl])
       .then(
         axios.spread((...responses) => {
+          console.log(REACT_APP_API_URL);
           setmangaList(responses[0].data.manga_list);
           setpopularList(responses[1].data.manga_list);
           setrecommendedList(responses[2].data.manga_list);
@@ -60,6 +61,8 @@ export default function Home() {
         })
       )
       .catch((errors) => {
+        console.log(REACT_APP_API_URL);
+        console.log(errors);
         // alert("error");
         setIsLoading(false);
         // react on errors.
